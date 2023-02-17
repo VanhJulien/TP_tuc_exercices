@@ -22,7 +22,7 @@ jobs:
           python -m pip install -r requirements.txt
       - name: pylint
         run: |
-          pylint ${git ls-files '*.py'} --errors-only --disable=E0401
+          pylint $(git ls-files '*.py' ) --errors-only --disable=E0401
       - name: coverage
         run: |
           coverage run -m pytest
