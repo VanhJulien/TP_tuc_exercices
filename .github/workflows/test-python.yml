@@ -29,3 +29,10 @@ jobs:
       - name: Reporting the coverage
         run: |
           coverage report
+      - name : locust testing
+        run: |
+          uvicorn application.main:app &
+          locust --config=tests/.locust.conf --locustfile=tests/locustfile.py --headless
+      - name : Run code
+        run: |
+          python ../application/main2.py
